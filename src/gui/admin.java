@@ -17,7 +17,7 @@ public class admin {
             new JButton("Add Transaction"),
             new JButton("View Transactions"),
             new JButton("Manage Categories"),
-            new JButton("Reports"),
+            new JButton("Inventory"),
             new JButton("Settings"),
             new JButton("Exit"),
             new JButton("Back")
@@ -80,10 +80,10 @@ public class admin {
         buttons[1].addActionListener(e -> new ADD_TRANSACTIONS_WINDOW(name, post));
         buttons[2].addActionListener(e -> new VIEW_TRANSACTIONS_WINDOW());
         buttons[3].addActionListener(e -> new MANAGE_CATEGORIES_WINDOW());
-        buttons[4].addActionListener(e -> new REPORTS_WINDOW());
+        buttons[4].addActionListener(e -> new INVENTORY_WINDOW());
         buttons[5].addActionListener(e -> new SETTINGS_WINDOW());
         buttons[6].addActionListener(e -> System.exit(0));
-        buttons[7].addActionListener(e -> System.out.println("Back"));
+        buttons[7].addActionListener(e -> new homepage("Expense management portal"));
 
         frame.setVisible(true);
     }

@@ -49,3 +49,10 @@ CREATE TABLE transactions (
     status VARCHAR(50),
     PRIMARY KEY (id)
 );
+CREATE TABLE inventory (
+     product_name VARCHAR(100) NOT NULL,
+     quantity INT NOT NULL
+     );
+ALTER TABLE transactions
+ADD COLUMN quantity INTEGER;
+

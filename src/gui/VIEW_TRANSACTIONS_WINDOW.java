@@ -31,7 +31,7 @@ public class VIEW_TRANSACTIONS_WINDOW extends JFrame {
     }
 
     private void loadTransactions() {
-        String[] columnNames = {"ID", "Type", "Category", "Amount","currency", "Date", "Notes", "Name", "Status"};
+        String[] columnNames = {"ID", "Type", "Category","quantity", "Amount","currency", "Date", "Notes", "Name", "Status"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
         try (Connection conn = database.getConnection();
@@ -39,16 +39,17 @@ public class VIEW_TRANSACTIONS_WINDOW extends JFrame {
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                Object[] row = new Object[9];
+                Object[] row = new Object[10];
                 row[0] = rs.getInt("id");
                 row[1] = rs.getString("type");
                 row[2] = rs.getString("category");
-                row[3] = rs.getDouble("amount");
-                row[4] = rs.getString("currency");
-                row[5] = rs.getDate("date");
-                row[6] = rs.getString("notes");
-                row[7] = rs.getString("name");
-                row[8] = rs.getString("status");
+                row[3] = rs.getInt("quantity");
+                row[4] = rs.getDouble("amount");
+                row[5] = rs.getString("currency");
+                row[6] = rs.getDate("date");
+                row[7] = rs.getString("notes");
+                row[8] = rs.getString("name");
+                row[9] = rs.getString("status");
                 model.addRow(row);
             }
 
